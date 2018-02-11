@@ -85,3 +85,8 @@ img {
     text-shadow: 2px 2px 8px #9fa3a5;
     cursor: pointer;
  }
+
+ #go:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
