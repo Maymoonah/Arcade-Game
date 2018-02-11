@@ -1,3 +1,21 @@
+//add sounds when mouse hovers or clicks on players and button
+//on Mouse Enter
+function playSounds() {
+    let sound = document.getElementsByTagName('audio')[0];
+
+    //play sounds
+    $('li').on('mouseenter', function() {
+        sound.play();
+    });
+
+    $('#go').on('click', function() {
+        sound.play();
+    });
+}
+
+//call playSounds
+playSounds();
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
