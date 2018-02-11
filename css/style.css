@@ -41,7 +41,7 @@ img {
 }
 
 #gameModal {
-    /*display: none;*/
+    display: block;
     position: fixed;
     z-index: 1;
     height: 100%;
@@ -62,7 +62,7 @@ img {
     border-radius: 1em;
 }
 
-#go {
+#start {
     width: 20%;
     height: 50px;
     display: block;
@@ -77,7 +77,7 @@ img {
     float: right;
  }
 
- #go:hover {
+ #start:hover {
     background-color: #2d87c4;
     color: #fff;
     text-shadow: 2px 2px 8px #9fa3a5;
@@ -86,7 +86,7 @@ img {
     cursor: pointer;
  }
 
- #go:active {
+ #start:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
