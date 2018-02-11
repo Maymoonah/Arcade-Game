@@ -8,13 +8,22 @@ function playSounds() {
         sound.play();
     });
 
-    $('#go').on('click', function() {
+    $('#start').on('click', function() {
         sound.play();
     });
 }
 
+//hideModal function
+function hideModal() {
+    $('#gameModal').css('display', 'none');
+}
+
 //call playSounds
 playSounds();
+
+//call hideModal when start button is clicked
+$('#start').on('click', hideModal);
+
 
 // Enemies our player must avoid
 var Enemy = function() {
