@@ -24,6 +24,23 @@ playSounds();
 //call hideModal when start button is clicked
 $('#start').on('click', hideModal);
 
+//add css styling when player is clicked
+$('li').on('click', function() {
+    let self = $(this);
+    //if li has class, remove it
+    if(self.hasClass('selected')) {
+        self.removeClass('selected');
+    } else {
+        //add selected class only to clicked item
+        $('li').each(function() {
+            $(this).removeClass('selected');
+        });
+        setTimeout(function() {
+            self.addClass('selected');
+        }, 100);
+    }
+});
+
 
 // Enemies our player must avoid
 var Enemy = function() {
