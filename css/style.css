@@ -3,13 +3,11 @@ body {
 }
 
 li {
-    /*display: block;*/
+    display: inline;
     list-style-type: none;
     float: left;
     border-radius: 1em;
     width: 30%;
-    align-items: center;
-    justify-content: center;
     padding: 0;
     margin: 0;
     border: 2px solid #fff;
