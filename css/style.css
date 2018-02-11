@@ -3,11 +3,13 @@ body {
 }
 
 li {
-    display: block;
+    /*display: block;*/
+    list-style-type: none;
     float: left;
     border-radius: 1em;
     width: 30%;
     align-items: center;
+    justify-content: center;
     padding: 0;
     margin: 0;
     border: 2px solid #fff;
@@ -22,6 +24,11 @@ li:hover {
     border: 2px solid #2c7c6c;
 }
 
+li:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
 h3 {
     font-family: 'VT323', monospace;
     text-align: center;
@@ -32,12 +39,16 @@ h3 {
 
 h1 {
     font-family: 'Orbitron', sans-serif;
-    
+    text-shadow: 2px 2px 8px #fff;
 }
 
 img {
     padding: 0;
     margin: 0;
+}
+
+i {
+    color: #23a86e;
 }
 
 #gameModal {
@@ -60,6 +71,7 @@ img {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 
     0 5px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 1em;
+    justify-content: center;
 }
 
 #start {
@@ -74,7 +86,6 @@ img {
     border-radius: 1em;
     padding: 0;
     margin: 0;
-    float: right;
  }
 
  #start:hover {
@@ -89,4 +100,10 @@ img {
  #start:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.selected {
+    background-color: rgba(76, 173, 145, 0.4);
+    box-shadow: 0 5px #666;
+    border: 2px solid #2c7c6c;
 }
