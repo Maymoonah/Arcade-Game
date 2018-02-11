@@ -12,12 +12,12 @@ li {
     margin: 0;
     border: 2px solid #fff;
     margin: 8px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(168, 172, 175, 0.6);
     font-size: 20px;
 }
 
 li:hover {
-    background-color: rgba(76, 173, 145, 0.4);
+    background-color: rgba(76, 173, 145, 0.7);
     cursor: pointer;
     border: 2px solid #2c7c6c;
 }
@@ -36,8 +36,9 @@ h3 {
 }
 
 h1 {
+    color: #fff;
     font-family: 'Orbitron', sans-serif;
-    text-shadow: 2px 2px 8px #fff;
+    text-shadow: 2px 2px 8px #333435;
 }
 
 img {
@@ -61,7 +62,7 @@ i {
 }
 
 #modalContent {
-    background-color: rgba(29, 77, 155, 0.4);
+    background-color: rgba(36, 71, 104, 0.7);
     margin: 4% auto;
     padding: 20px;
     width: 50%;
@@ -101,7 +102,7 @@ i {
 }
 
 .selected {
-    background-color: rgba(76, 173, 145, 0.4);
+    background-color: rgba(76, 173, 145, 0.7);
     box-shadow: 0 5px #666;
     border: 2px solid #2c7c6c;
 }
