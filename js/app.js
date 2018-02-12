@@ -1,15 +1,25 @@
+//variables
+let char;
+
 //add sounds when mouse hovers or clicks on players and button
 //on Mouse Enter
 function playSounds() {
     let sound = document.getElementsByTagName('audio')[0];
-
+    let li = $('li');
     //play sounds
-    $('li').on('mouseenter', function() {
+    li.on('mouseenter', function() {
         sound.play();
+    });
+
+    li.on('click', function() {
+        sound.play();
+        char = $(this);
+        console.log(char.html());
     });
 
     $('#start').on('click', function() {
         sound.play();
+        hideModal();
     });
 }
 
@@ -20,9 +30,6 @@ function hideModal() {
 
 //call playSounds
 playSounds();
-
-//call hideModal when start button is clicked
-$('#start').on('click', hideModal);
 
 //add css styling when player is clicked
 $('li').on('click', function() {
@@ -75,8 +82,19 @@ let Player = function() {
     this.render = function() {
 
     }
-    this.handleInput = function() {
-
+    this.handleInput = function(key) {
+        if(key === 37) {
+            console.log('left');
+        }
+        else if(key === 38) {
+            console.log('up');
+        }
+        else if(key === 39) {
+            console.log('right');
+        }
+        else {
+            console.log('down');
+        }
     }
 }
 
@@ -97,6 +115,5 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
