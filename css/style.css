@@ -10,9 +10,9 @@ li {
     width: 30%;
     padding: 0;
     margin: 0;
-    border: 2px solid #fff;
+    border: 2px solid #b0b3b7;
     margin: 8px;
-    background-color: rgba(168, 172, 175, 0.6);
+    background-color: rgba(209, 211, 214, 0.6);
     font-size: 20px;
 }
 
@@ -59,10 +59,11 @@ i {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    transition: all ease 1s;
 }
 
 #modalContent {
-    background-color: rgba(36, 71, 104, 0.7);
+    background-color: rgba(36, 71, 104, 0.8);
     margin: 4% auto;
     padding: 20px;
     width: 50%;
