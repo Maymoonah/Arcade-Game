@@ -57,6 +57,12 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.location = function() {
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+        }
+        img.src = 'images/enemy-bug.png';
+    }
 };
 
 // Update the enemy's position, required method for game
@@ -75,27 +81,20 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-let Player = function() {
-    this.update = function() {
+let Player = function(x, y) {
+    
+}
 
-    }
-    this.render = function() {
+Player.prototype.update = function() {
 
-    }
-    this.handleInput = function(key) {
-        if(key === 37) {
-            console.log('left');
-        }
-        else if(key === 38) {
-            console.log('up');
-        }
-        else if(key === 39) {
-            console.log('right');
-        }
-        else {
-            console.log('down');
-        }
-    }
+}
+
+Player.prototype.render = function() {
+
+}
+
+Player.prototype.handleInput = function() {
+
 }
 
 
