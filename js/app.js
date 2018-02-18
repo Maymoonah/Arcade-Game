@@ -76,6 +76,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x+=2;
 };
 
 // Draw the enemy on the screen, required method for game
@@ -86,15 +87,15 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-let Player = function() {
+let Player = function(x, y) {
     //player's position
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y;
 
     this.sprite = 'images/char-horn-girl.png';
     this.location = function() {
         img.onload = function () {
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, x, y);
         }
         img.src = 'images/char-horn-girl.png';
     }
@@ -105,7 +106,7 @@ Player.prototype.update = function() {
 }
 
 Player.prototype.render = function() {
-    // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.prototype.handleInput = function(key) {
@@ -116,15 +117,8 @@ Player.prototype.handleInput = function(key) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let player = new Player();
+let player = new Player(200, 400);
 let allEnemies = [new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
-
-for(let i = 0; i < allEnemies.length; i++) {
-    // allEnemies[i].render();
-}
-
-// player.render();
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
