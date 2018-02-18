@@ -52,16 +52,19 @@ $('li').on('click', function() {
 
 
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+
+    this.x = x;
+    this.y = y;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.location = function() {
         img.onload = function () {
-            ctx.drawImage(img, 10, 10);
+            ctx.drawImage(img, x, y);
         }
         img.src = 'images/enemy-bug.png';
     }
@@ -84,6 +87,10 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 let Player = function() {
+    //player's position
+    this.x = 0;
+    this.y = 0;
+
     this.sprite = 'images/char-horn-girl.png';
     this.location = function() {
         img.onload = function () {
@@ -101,8 +108,8 @@ Player.prototype.render = function() {
     // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Player.prototype.handleInput = function() {
-
+Player.prototype.handleInput = function(key) {
+    // if(key === 'left')
 }
 
 
@@ -110,11 +117,13 @@ Player.prototype.handleInput = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let player = new Player();
-let allEnemies = [new Enemy(), new Enemy(), new Enemy];
+let allEnemies = [new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
 
 for(let i = 0; i < allEnemies.length; i++) {
-    allEnemies[i].render();
+    // allEnemies[i].render();
 }
+
+// player.render();
 
 
 // This listens for key presses and sends the keys to your
