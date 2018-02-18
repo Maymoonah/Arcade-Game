@@ -55,7 +55,7 @@ ul {
 }
 
 #gameModal {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 1;
     height: 100%;
