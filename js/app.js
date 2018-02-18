@@ -1,4 +1,4 @@
-//variables
+/**************Code for game Modal to choose Player*****************/
 let char;
 
 //add sounds when mouse hovers or clicks on players and button
@@ -48,6 +48,8 @@ $('li').on('click', function() {
     }
 });
 
+/********************************Code For the Game***********************************/
+
 
 // Enemies our player must avoid
 var Enemy = function() {
@@ -59,7 +61,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.location = function() {
         img.onload = function () {
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 10, 10);
         }
         img.src = 'images/enemy-bug.png';
     }
@@ -81,8 +83,14 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-let Player = function(x, y) {
-    
+let Player = function() {
+    this.sprite = 'images/char-horn-girl.png';
+    this.location = function() {
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+        }
+        img.src = 'images/char-horn-girl.png';
+    }
 }
 
 Player.prototype.update = function() {
@@ -90,7 +98,7 @@ Player.prototype.update = function() {
 }
 
 Player.prototype.render = function() {
-
+    // ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 Player.prototype.handleInput = function() {
@@ -103,6 +111,10 @@ Player.prototype.handleInput = function() {
 // Place the player object in a variable called player
 let player = new Player();
 let allEnemies = [new Enemy(), new Enemy(), new Enemy];
+
+for(let i = 0; i < allEnemies.length; i++) {
+    allEnemies[i].render();
+}
 
 
 // This listens for key presses and sends the keys to your
