@@ -122,6 +122,24 @@ Player.prototype.update = function() {
     if(this.key === 'down') {
         this.y += 2;
     }
+
+    //don't allow player to go off canvas
+
+    //checking x position
+    if(this.x > 490) {
+        this.x = 450;
+    }
+    if(this.x < 0) {
+        this.x = 0;
+    }
+
+    //check y position
+    if(this.y > 600) {
+        this.y = 500;
+    }
+    if(this.y < 0) {
+        this.y = 0;
+    }
 }
 
 Player.prototype.render = function() {
