@@ -1,5 +1,5 @@
 /**************Code for game Modal to choose Player*****************/
-let char;
+let pic;
 
 //add sounds when mouse hovers or clicks on players and button
 //on Mouse Enter
@@ -13,8 +13,8 @@ function playSounds() {
 
     li.on('click', function() {
         sound.play();
-        char = $(this);
-        console.log(char.html());
+    
+        pic = $(this).find("img").attr("src") ;
     });
 
     $('#start').on('click', function() {
@@ -77,6 +77,10 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += 2;
+    if(this.x > 506) {
+        this.x = 0;
+    }
+    // console.log(pic);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -102,20 +106,21 @@ let Player = function(x, y) {
 }
 
 Player.prototype.update = function() {
+    //move player in direction of key pressed
     if(this.key === 'left') {
-        this.x -= 10;
+        this.x -= 2;
     }
 
     if(this.key === 'up') {
-        this.y -= 10;
+        this.y -= 2;
     }
 
     if(this.key === 'right') {
-        this.x += 10;
+        this.x += 2;
     }
 
     if(this.key === 'down') {
-        this.y += 10;
+        this.y += 2;
     }
 }
 
