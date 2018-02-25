@@ -60,7 +60,7 @@ var Enemy = function(x, y) {
     this.x = x;
     this.y = y;
     //add random speed for each enemy
-    this.speed = Math.floor(Math.random() * 8) + 1;
+    this.speed = Math.floor(Math.random() * 350) + 1;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -79,11 +79,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed;
+    this.x += this.speed * dt;
     if(this.x > 506) {
         this.x = 0;
     }
-    // console.log(canvas.width);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -142,6 +141,12 @@ Player.prototype.update = function() {
     }
     if(this.y < 0) {
         this.y = 0;
+    }
+
+    //check for player collision with enemy
+    if(this.x === 200 && this.y === 30) {
+        this.x = 200;
+        this.y = 400;
     }
 }
 
