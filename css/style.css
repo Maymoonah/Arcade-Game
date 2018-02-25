@@ -55,7 +55,7 @@ ul {
 }
 
 #gameModal {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 1;
     height: 100%;
@@ -198,5 +198,17 @@ ul {
 @media only screen and (max-width: 500px) {
     #modalContent {
         width: 85%;
+    }
+}
+
+@media only screen and (max-width: 535px) {
+    canvas {
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    canvas {
+        width: 300px;
     }
 }
