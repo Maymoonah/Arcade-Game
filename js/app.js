@@ -59,7 +59,8 @@ var Enemy = function(x, y) {
 
     this.x = x;
     this.y = y;
-    this.speed = Math.floor(Math.random() * 10) + 1;
+    //add random speed for each enemy
+    this.speed = Math.floor(Math.random() * 8) + 1;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -157,7 +158,7 @@ Player.prototype.handleInput = function(key) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let player = new Player(200, 400);
-let allEnemies = [new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
+let allEnemies = [new Enemy(0, 60), new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
