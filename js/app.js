@@ -88,6 +88,16 @@ Enemy.prototype.update = function(dt) {
     if(this.x > 506) {
         this.x = 0;
     }
+
+    //check for player collision with enemy
+    if (player.x < this.x + this.enemyWidth && player.x + player.playerWidth > this.x &&
+        player.y < this.y + this.enemyHeight && player.playerHeight + player.y > this.y) {
+
+        //if player and enemies collide, set player position to default position
+        player.x = 200;
+        player.y = 400;
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -117,7 +127,6 @@ let Player = function(x, y) {
 }
 
 Player.prototype.update = function() {
-    
     //don't allow player to go off canvas
     //checking x position
     if(this.x > ctx.canvas.width) {
@@ -134,12 +143,6 @@ Player.prototype.update = function() {
     if(this.y < 0) {
         this.y = 0;
     }
-
-    //check for player collision with enemy
-    // if(this.y === 60 || this.y === 150 || this.y === 235) {
-    //     this.x = 200;
-    //     this.y = 400;
-    // }
 }
 
 Player.prototype.render = function() {
@@ -147,6 +150,9 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(key) {
+
+    this.key = key;
+
     //move player in direction of key pressed
     if(this.key === 'left') {
         this.x -= 70;
@@ -163,8 +169,6 @@ Player.prototype.handleInput = function(key) {
     if(this.key === 'down') {
         this.y += 70;
     }
-
-    this.key = key;
 }
 
 
