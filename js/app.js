@@ -166,19 +166,21 @@ Player.prototype.handleInput = function(key) {
             this.y += 70;
             break;
         default:
-            this.x = x;
-            this.y = y;
+            this.x = 200;
+            this.y = 400;
         }
 }
 
+//Gem constructor function to add gems to arcade game
 let Gem = function(gem) {
     //gem's position
     this.x = Math.floor(Math.random() * 400) + 1;
     this.y = Math.floor(Math.random() * (400 - 60 + 1) ) + 60;
+    this.count = 0;
 
     //player's width and height
-    this.gemWidth = 101;
-    this.gemHeight = 171;
+    this.gemWidth = 20;
+    this.gemHeight = 30;
 
     //images for gems
     this.sprite = `images/${gem}.png`;
@@ -190,10 +192,22 @@ let Gem = function(gem) {
     }
 }
 
+//render gems to screen
 Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+// Update the gems
+Gem.prototype.update = function(dt) {
+    //check if player picks gem up
+    if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
+        player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
+
+        //if player and enemies collide, set player position to default position
+        this.count++;
+        console.log(this.count);
+    }
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
