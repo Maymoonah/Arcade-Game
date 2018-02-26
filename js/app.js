@@ -183,7 +183,7 @@ Player.prototype.handleInput = function(key) {
 let Gem = function(gem) {
     //gem's position
     this.x = Math.floor(Math.random() * 400) + 1;
-    this.y = Math.floor(Math.random() * (400 - 60 + 1) ) + 60;
+    this.y = Math.floor(Math.random() * 380) + 121;
     this.count = 0;
 
     //set number of gems collected to 0
