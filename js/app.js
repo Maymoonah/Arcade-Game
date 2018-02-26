@@ -152,21 +152,23 @@ Player.prototype.handleInput = function(key) {
     this.key = key;
 
     //move player in direction of key pressed
-    if(this.key === 'left') {
-        this.x -= 80;
-    }
-
-    if(this.key === 'up') {
-        this.y -= 70;
-    }
-
-    if(this.key === 'right') {
-        this.x += 70;
-    }
-
-    if(this.key === 'down') {
-        this.y += 70;
-    }
+    switch(this.key) {
+        case 'left':
+            this.x -= 80;
+            break;
+        case 'up':
+            this.y -= 70;
+            break;
+        case 'right':
+            this.x += 70;
+            break;
+        case 'down':
+            this.y += 70;
+            break;
+        default:
+            this.x = x;
+            this.y = y;
+        }
 }
 
 let Gem = function(gem) {
