@@ -59,7 +59,7 @@ var Enemy = function() {
     this.y = this.pointY[Math.floor(Math.random() * Math.floor(3))];
 
     //enemy width and height
-    this.enemyWidth = 101;
+    this.enemyWidth = 99;
     this.enemyHeight = 70;
 
     //add random speed for each enemy
@@ -115,12 +115,12 @@ let Player = function(x, y) {
     this.playerHeight = 73;
 
     //image for player
-    this.sprite = 'images/char-horn-girl.png';
+    this.sprite = 'images/char-boy.png';
     this.location = function() {
         img.onload = function () {
             ctx.drawImage(img, x, y);
         }
-        img.src = 'images/char-horn-girl.png';
+        img.src = 'images/char-boy.png';
     }
 }
 
