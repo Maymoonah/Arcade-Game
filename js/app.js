@@ -91,10 +91,10 @@ Enemy.prototype.update = function(dt) {
         //if player and enemies collide, set player position to default position
         player.x = 200;
         player.y = 400;
+
         //set score to 0
         player.count = 0;
         $('#score').text(this.count);
-        console.log(player.count);
     }
 };
 
@@ -127,7 +127,7 @@ let Player = function() {
 Player.prototype.update = function() {
     //don't allow player to go off canvas
     //checking x position
-    if(this.x > ctx.canvas.width) {
+    if(this.x > ctx.canvas.width - this.playerWidth) {
         this.x = 450;
     }
     if(this.x < 0) {
@@ -135,7 +135,7 @@ Player.prototype.update = function() {
     }
 
     //check y position
-    if(this.y > ctx.canvas.height) {
+    if(this.y > ctx.canvas.height - this.playerHeight) {
         this.y = 500;
     }
     if(this.y < 0) {
@@ -186,6 +186,13 @@ let Gem = function(gem) {
     this.y = Math.floor(Math.random() * (400 - 60 + 1) ) + 60;
     this.count = 0;
 
+    //set number of gems collected to 0
+    this.countB = 0;
+    this.countG = 0;
+    this.countO = 0;
+    this.countS = 0;
+    this.countH = 0;
+
     //player's width and height
     this.gemWidth = 20;
     this.gemHeight = 30;
@@ -196,7 +203,7 @@ let Gem = function(gem) {
         img.onload = function () {
             ctx.drawImage(img, x, y);
         }
-        img.src = 'images/Gem-Blue.png';
+        img.src = `images/${gem}.png`;
     }
 }
 
@@ -211,7 +218,30 @@ Gem.prototype.update = function(dt) {
     if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
 
-        // this.count++;
+        //remove gem
+
+        //increment gem count
+        if(this.sprite === 'images/Gem-Blue.png') {
+            this.countB++;
+            $('#countB').text(this.countB);
+            console.log(this.countB);
+        }
+        else if(this.sprite === 'images/Gem-Green.png') {
+            this.countG++;
+            $('#countG').text(this.countG);
+        }
+        else if(this.sprite === 'images/Gem-Orange.png') {
+            this.countO++;
+            $('#countO').text(this.countO);
+        }
+        else if(this.sprite === 'images/Star.png') {
+            this.countS++;
+            $('#countS').text(this.countS);
+        }
+        else {
+            this.countH++;
+            $('#countH').text(this.countH);
+        }
     }
 };
 
