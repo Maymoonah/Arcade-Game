@@ -15,7 +15,6 @@ function playSounds() {
         sound.play();
     
         pic = $(this).find("img").attr("src") ;
-        console.log(pic);
     });
 
     $('#start').on('click', function() {
@@ -56,7 +55,7 @@ var Enemy = function() {
     //coordinates for enemies
     this.x = 0;
     //add random points for y to allow enemies to appear on random rows
-    this.pointY = [60, 150, 235];
+    this.pointY = [140, 220, 305];
     this.y = this.pointY[Math.floor(Math.random() * Math.floor(3))];
 
     //enemy width and height
@@ -92,6 +91,10 @@ Enemy.prototype.update = function(dt) {
         //if player and enemies collide, set player position to default position
         player.x = 200;
         player.y = 400;
+        //set score to 0
+        player.count = 0;
+        $('#score').text(this.count);
+        console.log(player.count);
     }
 };
 
@@ -208,9 +211,7 @@ Gem.prototype.update = function(dt) {
     if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
 
-        //if player and enemies collide, set player position to default position
-        this.count++;
-        console.log(this.count);
+        // this.count++;
     }
 };
 
