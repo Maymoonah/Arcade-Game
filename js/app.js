@@ -60,7 +60,7 @@ var Enemy = function() {
 
     //enemy width and height
     this.enemyWidth = 101;
-    this.enemyHeight = 171;
+    this.enemyHeight = 70;
 
     //add random speed for each enemy
     this.speed = Math.floor(Math.random() * 200) + 1;
@@ -111,8 +111,8 @@ let Player = function(x, y) {
     this.count = 0;
 
     //player's width and height
-    this.playerWidth = 101;
-    this.playerHeight = 171;
+    this.playerWidth = 69;
+    this.playerHeight = 73;
 
     //image for player
     this.sprite = 'images/char-horn-girl.png';
@@ -165,13 +165,13 @@ Player.prototype.handleInput = function(key) {
             this.x -= 80;
             break;
         case 'up':
-            this.y -= 70;
+            this.y -= 80;
             break;
         case 'right':
-            this.x += 70;
+            this.x += 80;
             break;
         case 'down':
-            this.y += 70;
+            this.y += 80;
             break;
         default:
             this.x = 200;
