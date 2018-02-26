@@ -62,7 +62,7 @@ var Enemy = function(x, y) {
     this.enemyHeight = 171;
 
     //add random speed for each enemy
-    this.speed = Math.floor(Math.random() * 350) + 1;
+    this.speed = Math.floor(Math.random() * 200) + 1;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
