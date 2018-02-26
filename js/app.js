@@ -117,25 +117,8 @@ let Player = function(x, y) {
 }
 
 Player.prototype.update = function() {
-    //move player in direction of key pressed
-    if(this.key === 'left') {
-        this.x -= 2;
-    }
-
-    if(this.key === 'up') {
-        this.y -= 2;
-    }
-
-    if(this.key === 'right') {
-        this.x += 2;
-    }
-
-    if(this.key === 'down') {
-        this.y += 2;
-    }
-
+    
     //don't allow player to go off canvas
-
     //checking x position
     if(this.x > ctx.canvas.width) {
         this.x = 450;
@@ -164,6 +147,23 @@ Player.prototype.render = function() {
 }
 
 Player.prototype.handleInput = function(key) {
+    //move player in direction of key pressed
+    if(this.key === 'left') {
+        this.x -= 70;
+    }
+
+    if(this.key === 'up') {
+        this.y -= 70;
+    }
+
+    if(this.key === 'right') {
+        this.x += 70;
+    }
+
+    if(this.key === 'down') {
+        this.y += 70;
+    }
+
     this.key = key;
 }
 
