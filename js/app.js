@@ -98,6 +98,10 @@ let Player = function(x, y) {
     this.x = x;
     this.y = y;
 
+    //player's width and height
+    this.playerWidth = 101;
+    this.playerHeight = 171;
+
     this.sprite = 'images/char-horn-girl.png';
     this.location = function() {
         img.onload = function () {
@@ -123,7 +127,6 @@ Player.prototype.update = function() {
 
     if(this.key === 'down') {
         this.y += 2;
-        console.log(this.width);
     }
 
     //don't allow player to go off canvas
