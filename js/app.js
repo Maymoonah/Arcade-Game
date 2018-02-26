@@ -104,15 +104,15 @@ Enemy.prototype.render = function() {
 };
 
 // Player constructor function
-let Player = function(x, y) {
+let Player = function() {
     //player's position
-    this.x = x;
-    this.y = y;
+    this.x = 220;
+    this.y = 500;
     this.count = 0;
 
     //player's width and height
-    this.playerWidth = 69;
-    this.playerHeight = 73;
+    this.playerWidth = 80;
+    this.playerHeight = 91;
 
     //image for player
     this.sprite = 'images/char-boy.png';
@@ -218,7 +218,7 @@ Gem.prototype.update = function(dt) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let player = new Player(200, 400);
+let player = new Player();
 let allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 let blueGem = new Gem('Gem-Blue');
 let greenGem = new Gem('Gem-Green');
