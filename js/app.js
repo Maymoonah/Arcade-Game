@@ -103,6 +103,7 @@ let Player = function(x, y) {
     //player's position
     this.x = x;
     this.y = y;
+    this.count = 0;
 
     //player's width and height
     this.playerWidth = 101;
@@ -140,6 +141,8 @@ Player.prototype.update = function() {
     if(player.y === 0) {
         player.x = 200;
         player.y = 400;
+        this.count++;
+        $('#score').text(this.count);
     }
 }
 
