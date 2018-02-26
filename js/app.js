@@ -52,10 +52,12 @@ $('li').on('click', function() {
 /********************************Code For the Game***********************************/
 
 // Enemy constructor function
-var Enemy = function(x, y) {
+var Enemy = function() {
     //coordinates for enemies
-    this.x = x;
-    this.y = y;
+    this.x = 0;
+    //add random points for y to allow enemies to appear on random rows
+    this.pointY = [60, 150, 235];
+    this.y = this.pointY[Math.floor(Math.random() * Math.floor(3))];
 
     //enemy width and height
     this.enemyWidth = 101;
@@ -216,7 +218,7 @@ Gem.prototype.update = function(dt) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let player = new Player(200, 400);
-let allEnemies = [new Enemy(0, 60), new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
+let allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 let blueGem = new Gem('Gem-Blue');
 let greenGem = new Gem('Gem-Green');
 let orangeGem = new Gem('Gem-Orange');
