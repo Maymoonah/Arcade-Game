@@ -123,12 +123,13 @@ Player.prototype.update = function() {
 
     if(this.key === 'down') {
         this.y += 2;
+        console.log(this.width);
     }
 
     //don't allow player to go off canvas
 
     //checking x position
-    if(this.x > 490) {
+    if(this.x > ctx.canvas.width) {
         this.x = 450;
     }
     if(this.x < 0) {
@@ -136,7 +137,7 @@ Player.prototype.update = function() {
     }
 
     //check y position
-    if(this.y > 600) {
+    if(this.y > ctx.canvas.height) {
         this.y = 500;
     }
     if(this.y < 0) {
@@ -144,10 +145,10 @@ Player.prototype.update = function() {
     }
 
     //check for player collision with enemy
-    if(this.x === 200 && this.y === 30) {
-        this.x = 200;
-        this.y = 400;
-    }
+    // if(this.y === 60 || this.y === 150 || this.y === 235) {
+    //     this.x = 200;
+    //     this.y = 400;
+    // }
 }
 
 Player.prototype.render = function() {
