@@ -198,8 +198,10 @@ Gem.prototype.render = function() {
 // Place the player object in a variable called player
 let player = new Player(200, 400);
 let allEnemies = [new Enemy(0, 60), new Enemy(0, 60), new Enemy(0, 150), new Enemy(0, 235)];
-let gem = new Gem('Gem-Blue');
-
+let blueGem = new Gem('Gem-Blue');
+let greenGem = new Gem('Gem-Green');
+let orangeGem = new Gem('Gem-Orange');
+let star = new Gem('Star');
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
