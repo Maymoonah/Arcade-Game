@@ -7,7 +7,8 @@ li {
     list-style-type: none;
     float: left;
     border-radius: 1em;
-    width: 30%;
+    width: 180px;
+    height: 175px;
     padding: 0;
     border: 2px solid #b0b3b7;
     margin: 8px;
@@ -41,8 +42,7 @@ h1 {
 }
 
 img {
-    padding: 0;
-    margin: 0;
+    padding: 10px;
 }
 
 i {
@@ -125,11 +125,11 @@ ul {
         width: 150px;
         height: 180px;
     }
-
+/*
     img {
         width: 80px;
         height: 150px;
-    }
+    }*/
 
     h3 {
         font-size: 22px;
@@ -146,10 +146,10 @@ ul {
         height: 160px;
     }
 
-    img {
+    /*img {
         width: 65px;
         height: 120px;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 1000px) {
@@ -160,8 +160,8 @@ ul {
     }
 
     img {
-        width: 50px;
-        height: 95px;
+        width: 65px;
+        height: 75px;
     }
 
     #modalContent {
@@ -215,5 +215,11 @@ ul {
 @media only screen and (max-width: 430px) {
     canvas {
         width: 300px;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    #modalContent {
+        padding-left: 60px;
     }
 }
