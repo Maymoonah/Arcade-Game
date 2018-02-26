@@ -59,6 +59,11 @@ var Enemy = function(x, y) {
 
     this.x = x;
     this.y = y;
+
+    //enemy width and height
+    this.enemyWidth = 101;
+    this.enemyHeight = 171;
+
     //add random speed for each enemy
     this.speed = Math.floor(Math.random() * 350) + 1;
 
