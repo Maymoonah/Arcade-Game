@@ -94,7 +94,10 @@ Enemy.prototype.update = function(dt) {
 
         //set score to 0
         player.count = 0;
-        $('#score').text(this.count);
+        $('#score').text(player.count);
+
+        //reduce player lives
+
     }
 };
 
@@ -143,9 +146,9 @@ Player.prototype.update = function() {
     }
 
     //return player to default position if player reaches the water
-    if(player.y === 0) {
-        player.x = 200;
-        player.y = 400;
+    if(this.y < 20) {
+        this.x = 200;
+        this.y = 400;
         this.count++;
         $('#score').text(this.count);
     }
@@ -191,7 +194,7 @@ let Gem = function(gem) {
     this.countG = 0;
     this.countO = 0;
     this.countS = 0;
-    this.countH = 0;
+    this.countH = 5;
 
     //player's width and height
     this.gemWidth = 20;
@@ -224,7 +227,7 @@ Gem.prototype.update = function(dt) {
         if(this.sprite === 'images/Gem-Blue.png') {
             this.countB++;
             $('#countB').text(this.countB);
-            console.log(this.countB);
+            // console.log(this.countB);
         }
         else if(this.sprite === 'images/Gem-Green.png') {
             this.countG++;
