@@ -97,7 +97,9 @@ Enemy.prototype.update = function(dt) {
         $('#score').text(player.count);
 
         //reduce player lives
-
+        player.countH--;
+        $('#countH').text(player.countH);
+        console.log(player.countH);
     }
 };
 
@@ -112,6 +114,7 @@ let Player = function() {
     this.x = 220;
     this.y = 500;
     this.count = 0;
+    this.countH = 0;
 
     //player's width and height
     this.playerWidth = 80;
@@ -194,7 +197,6 @@ let Gem = function(gem) {
     this.countG = 0;
     this.countO = 0;
     this.countS = 0;
-    this.countH = 5;
 
     //player's width and height
     this.gemWidth = 20;
@@ -237,13 +239,9 @@ Gem.prototype.update = function(dt) {
             this.countO++;
             $('#countO').text(this.countO);
         }
-        else if(this.sprite === 'images/Star.png') {
+        else {
             this.countS++;
             $('#countS').text(this.countS);
-        }
-        else {
-            this.countH++;
-            $('#countH').text(this.countH);
         }
     }
 };
