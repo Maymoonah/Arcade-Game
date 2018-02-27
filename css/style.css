@@ -231,3 +231,14 @@ ul {
         padding-left: 60px;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    #title, .scoreBoard {
+        width: 80%;
+    }
+
+    .gem {
+        width: 20px;
+        height: 20px;
+    }
+}
