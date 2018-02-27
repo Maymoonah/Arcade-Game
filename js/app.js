@@ -110,6 +110,7 @@ let Player = function() {
     this.y = 500;
     this.count = 0;
     this.countH = 0;
+    this.level = 1;
 
     //player's width and height
     this.playerWidth = 80;
@@ -143,13 +144,42 @@ Player.prototype.update = function() {
         this.y = 0;
     }
 
-    //return player to default position if player reaches the water
+    //return player to default position if player reaches the water, increment score
     if(this.y < 20) {
         this.x = 200;
         this.y = 400;
         this.count++;
         $('#score').text(this.count);
+
+        //move to level 2 by increasing speed
+        if(this.count === 10 && this.level === 1) {
+            //increment level
+            this.level++;
+            $('#level').text(this.level);
+            //reset score
+            this.count = 0;
+            $('#score').text(this.count);
+            //increase enemy speed
+            allEnemies.forEach(function(enemy) {
+                enemy.speed += 100;
+            });
+        }
+
+        //move to level 3 by increasing speed
+        if(this.count === 10 && this.level === 2) {
+            //increment level
+            this.level++;
+            $('#level').text(this.level);
+            //reset score
+            this.count = 0;
+            $('#score').text(this.count);
+            //increase enemy speed
+            allEnemies.forEach(function(enemy) {
+                enemy.speed += 100;
+            });
+        }
     }
+
 
     //check if player lives reaches 0
     if(this.countH === 0) {
