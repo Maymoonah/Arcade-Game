@@ -92,14 +92,9 @@ Enemy.prototype.update = function(dt) {
         player.x = 200;
         player.y = 400;
 
-        //set score to 0
-        player.count = 0;
-        $('#score').text(player.count);
-
         //reduce player lives
         player.countH--;
-        $('#countH').text(player.countH);
-        console.log(player.countH);
+        $('#countH').text(`${player.countH} Lives`);
     }
 };
 
@@ -155,6 +150,20 @@ Player.prototype.update = function() {
         this.count++;
         $('#score').text(this.count);
     }
+
+    //check if player lives reaches 0
+    if(this.countH === 0) {
+        alert('Game Over');
+        this.countH = 5;
+        $('#countH').text(`${player.countH} Lives`);
+        allEnemies.forEach(function(enemy) {
+            enemy.render();
+        });
+    }
+}
+
+Player.prototype.resetGame = function() {
+
 }
 
 Player.prototype.render = function() {
@@ -223,25 +232,26 @@ Gem.prototype.update = function(dt) {
     if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
 
-        //remove gem
+        //update gem location
+        this.render();
 
         //increment gem count
-        if(this.sprite === 'images/Gem-Blue.png') {
-            this.countB++;
-            $('#countB').text(this.countB);
-            // console.log(this.countB);
-        }
-        else if(this.sprite === 'images/Gem-Green.png') {
-            this.countG++;
-            $('#countG').text(this.countG);
-        }
-        else if(this.sprite === 'images/Gem-Orange.png') {
-            this.countO++;
-            $('#countO').text(this.countO);
-        }
-        else {
-            this.countS++;
-            $('#countS').text(this.countS);
+        switch(this.sprite) {
+            case 'images/Gem-Blue.png':
+                this.countB++;
+                $('#countB').text(this.countB);
+                break;
+            case 'images/Gem-Green.png':
+                this.countG++;
+                $('#countG').text(this.countG);
+                break;
+            case 'images/Gem-Orange.png':
+                this.countO++;
+                $('#countO').text(this.countO);
+            case 'images/Star.png':
+                this.countS++;
+                $('#countS').text(this.countS);
+                break;
         }
     }
 };
