@@ -144,6 +144,46 @@ Player.prototype.update = function() {
         this.y = 0;
     }
 
+    //check if player lives reaches 0
+    if(this.countH === 0) {
+        alert('Game Over');
+
+        //reset score, lives, level, and gems
+        this.countH = 5;
+        this.count = 0;
+        this.level = 1;
+        allGems.forEach(function(gem) {
+            gem.countB = 0;
+            gem.countG = 0;
+            gem.countO = 0;
+            gem.countS = 0; 
+        });
+
+        //update scoreboard
+        $('#level').text(this.level);
+        $('#score').text(this.count);
+        $('#countH').text(this.countH);
+        $('#countB').text(this.countB);
+        $('#countG').text(this.countG);
+        $('#countO').text(this.countO);
+        $('#countS').text(this.countS);
+
+        //reset speed of enemies
+        allEnemies.forEach(function(enemy) {
+            enemy.speed -= 100;
+        });
+
+        //reset enemies 
+        allEnemies.forEach(function(enemy) {
+            enemy.render();
+            enemy.update();
+        });
+    }
+    this.reachSafety();
+}
+
+//function when player reaches water
+Player.prototype.reachSafety = function() {
     //return player to default position if player reaches the water, increment score
     if(this.y < 20) {
         this.x = 200;
@@ -183,41 +223,6 @@ Player.prototype.update = function() {
             this.countH = 5;
             $('#countH').text(this.countH);
         }
-    }
-
-
-    //check if player lives reaches 0
-    if(this.countH === 0) {
-        alert('Game Over');
-
-        //reset score, lives, level, and gems
-        this.countH = 5;
-        this.count = 0;
-        this.level = 1;
-        this.countB = 0;
-        this.countG = 0;
-        this.countO = 0;
-        this.countS = 0;
-
-        //update scoreboard
-        $('#level').text(this.level);
-        $('#score').text(this.count);
-        $('#countH').text(this.countH);
-        $('#countB').text(this.countB);
-        $('#countG').text(this.countG);
-        $('#countO').text(this.countO);
-        $('#countS').text(this.countS);
-
-        //reset speed of enemies
-        allEnemies.forEach(function(enemy) {
-            enemy.speed -= 100;
-        });
-
-        //reset enemies 
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-            enemy.update();
-        });
     }
 }
 
@@ -287,7 +292,7 @@ Gem.prototype.update = function(dt) {
     if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
 
-        //remove gem from allGems array
+        //remove gem from allGems array and push to tempGems array
         for(let i = 0; i < allGems.length; i++) {
             if(allGems[i] === this) {
                 tempGems.push(allGems[i]);
@@ -299,6 +304,7 @@ Gem.prototype.update = function(dt) {
         if(allGems.length === 0) {
             for(let i = 0; i < tempGems.length; i++) {
                 allGems.push(tempGems[i]);
+                tempGems.splice(i, 1);
             }
         }
 
