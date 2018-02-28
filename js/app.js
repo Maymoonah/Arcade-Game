@@ -189,7 +189,8 @@ Player.prototype.update = function() {
     //check if player lives reaches 0
     if(this.countH === 0) {
         alert('Game Over');
-        //set score, lives, level, gems to 0
+
+        //reset score, lives, level, and gems
         this.countH = 5;
         this.count = 0;
         this.level = 1;
@@ -198,30 +199,26 @@ Player.prototype.update = function() {
         this.countO = 0;
         this.countS = 0;
 
-        //reset speed of enemies
-        allEnemies.forEach(function(enemy) {
-            enemy.speed -= 100;
-        });
-
-        //reset level, gem counters, lives, and update scoreboard
-        $('#level').text(`Level ${this.level}`);
+        //update scoreboard
+        $('#level').text(this.level);
         $('#score').text(this.count);
         $('#countH').text(this.countH);
         $('#countB').text(this.countB);
         $('#countG').text(this.countG);
         $('#countO').text(this.countO);
         $('#countS').text(this.countS);
-        // allEnemies.forEach(function(enemy) {
-        //     enemy.render();
-        //     enemy.update();
-        // });
-        //reset to level 1
-        
+
+        //reset speed of enemies
+        allEnemies.forEach(function(enemy) {
+            enemy.speed -= 100;
+        });
+
+        //reset enemies 
+        allEnemies.forEach(function(enemy) {
+            enemy.render();
+            enemy.update();
+        });
     }
-}
-
-Player.prototype.resetGame = function() {
-
 }
 
 Player.prototype.render = function() {
@@ -293,18 +290,17 @@ Gem.prototype.update = function(dt) {
         //remove gem from allGems array
         for(let i = 0; i < allGems.length; i++) {
             if(allGems[i] === this) {
+                tempGems.push(allGems[i]);
                 allGems.splice(i, 1);
             }
         }
 
-        console.log(allGems);
+        //re-render gems to game if all games have been picked up
         if(allGems.length === 0) {
-            allGems.forEach(function(gem) {
-                gem.render();
-                gem.update();
-            });
+            for(let i = 0; i < tempGems.length; i++) {
+                allGems.push(tempGems[i]);
+            }
         }
-
 
         //increment gem count
         switch(this.sprite) {
@@ -334,6 +330,7 @@ Gem.prototype.update = function(dt) {
 let player = new Player();
 let allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 let allGems = [new Gem('Gem-Blue'), new Gem('Gem-Green'), new Gem('Gem-Orange'), new Gem('Star')];
+let tempGems = [];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
