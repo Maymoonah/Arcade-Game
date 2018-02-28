@@ -109,7 +109,7 @@ let Player = function() {
     this.x = 220;
     this.y = 500;
     this.count = 0;
-    this.countH = 0;
+    this.countH = 5;
     this.level = 1;
 
     //player's width and height
@@ -152,31 +152,36 @@ Player.prototype.update = function() {
         $('#score').text(this.count);
 
         //move to level 2 by increasing speed
-        if(this.count === 10 && this.level === 1) {
+        if(this.count === 5 && this.level === 1) {
             //increment level
             this.level++;
             $('#level').text(this.level);
-            //reset score
-            this.count = 0;
-            $('#score').text(this.count);
+
             //increase enemy speed
             allEnemies.forEach(function(enemy) {
                 enemy.speed += 100;
             });
+
+            //reset lives when player goes to new level
+            this.countH = 5;
+            $('#countH').text(this.countH);
         }
 
         //move to level 3 by increasing speed
-        if(this.count === 10 && this.level === 2) {
+        if(this.count === 5 && this.level === 2) {
+
             //increment level
             this.level++;
             $('#level').text(this.level);
-            //reset score
-            this.count = 0;
-            $('#score').text(this.count);
+            
             //increase enemy speed
             allEnemies.forEach(function(enemy) {
                 enemy.speed += 100;
             });
+
+            //reset lives when player goes to new level
+            this.countH = 5;
+            $('#countH').text(this.countH);
         }
     }
 
@@ -184,11 +189,27 @@ Player.prototype.update = function() {
     //check if player lives reaches 0
     if(this.countH === 0) {
         alert('Game Over');
+        //set score, lives, level, gems to 0
         this.countH = 5;
-        $('#countH').text(`${player.countH} Lives`);
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-        });
+        this.count = 0;
+        this.level = 1;
+        this.countB = 0;
+        this.countG = 0;
+        this.countO = 0;
+        this.countS = 0;
+        $('#level').text(`Level ${this.level}`);
+        $('#score').text(this.count);
+        $('#countH').text(this.countH);
+        $('#countB').text(this.countB);
+        $('#countG').text(this.countG);
+        $('#countO').text(this.countO);
+        $('#countS').text(this.countS);
+        // allEnemies.forEach(function(enemy) {
+        //     enemy.render();
+        //     enemy.update();
+        // });
+        //reset to level 1
+        
     }
 }
 
@@ -267,6 +288,14 @@ Gem.prototype.update = function(dt) {
             if(allGems[i] === this) {
                 allGems.splice(i, 1);
             }
+        }
+
+        console.log(allGems);
+        if(allGems.length === 0) {
+            allGems.forEach(function(gem) {
+                gem.render();
+                gem.update();
+            });
         }
 
 
