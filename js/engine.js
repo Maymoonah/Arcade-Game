@@ -83,7 +83,7 @@ var Engine = (function(global) {
     }
 
     /* This is called by the update function and loops through all of the
-     * objects within your allEnemies array as defined in app.js and calls
+     * objects within your allEnemies and allGems arrays as defined in app.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
      * the data/properties related to the object. Do your drawing in your
@@ -94,10 +94,9 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        blueGem.update();
-        greenGem.update();
-        orangeGem.update();
-        star.update();
+        allGems.forEach(function(gem) {
+            gem.update();
+        });
     }
 
     /* This function initially draws the "game level", it will then call
@@ -150,13 +149,16 @@ var Engine = (function(global) {
      * on your enemy and player entities within app.js
      */
     function renderEntities() {
-        /* Loop through all of the objects within the allEnemies array and call
+        /* Loop through all of the objects within the allEnemies and allGems array and call
          * the render function you have defined.
          */
-        blueGem.render();
-        greenGem.render();
-        orangeGem.render();
-        star.render();
+        // blueGem.render();
+        // greenGem.render();
+        // orangeGem.render();
+        // star.render();
+        allGems.forEach(function(gem) {
+            gem.render();
+        });
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
