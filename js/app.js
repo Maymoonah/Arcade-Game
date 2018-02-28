@@ -144,6 +144,12 @@ Player.prototype.update = function() {
         this.y = 0;
     }
 
+    this.reachSafety();
+    this.reset();
+}
+
+//function to check if player is out of lives
+Player.prototype.reset = function() {
     //check if player lives reaches 0
     if(this.countH === 0) {
         alert('Game Over');
@@ -179,7 +185,6 @@ Player.prototype.update = function() {
             enemy.update();
         });
     }
-    this.reachSafety();
 }
 
 //function when player reaches water
