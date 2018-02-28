@@ -262,7 +262,12 @@ Gem.prototype.update = function(dt) {
     if (player.x < this.x + this.gemWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.gemHeight && player.playerHeight + player.y > this.y) {
 
-        //remove gem
+        //remove gem from allGems array
+        for(let i = 0; i < allGems.length; i++) {
+            if(allGems[i] === this) {
+                allGems.splice(i, 1);
+            }
+        }
 
 
         //increment gem count
@@ -293,11 +298,6 @@ Gem.prototype.update = function(dt) {
 let player = new Player();
 let allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 let allGems = [new Gem('Gem-Blue'), new Gem('Gem-Green'), new Gem('Gem-Orange'), new Gem('Star')];
-
-// let blueGem = new Gem('Gem-Blue');
-// let greenGem = new Gem('Gem-Green');
-// let orangeGem = new Gem('Gem-Orange');
-// let star = new Gem('Star');
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
