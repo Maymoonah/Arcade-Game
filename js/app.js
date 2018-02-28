@@ -197,6 +197,13 @@ Player.prototype.update = function() {
         this.countG = 0;
         this.countO = 0;
         this.countS = 0;
+
+        //reset speed of enemies
+        allEnemies.forEach(function(enemy) {
+            enemy.speed -= 100;
+        });
+
+        //reset level, gem counters, lives, and update scoreboard
         $('#level').text(`Level ${this.level}`);
         $('#score').text(this.count);
         $('#countH').text(this.countH);
