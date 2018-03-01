@@ -11,13 +11,18 @@ function playSounds() {
         sound.play();
     });
 
+    //when player clicks on a character
     li.on('click', function() {
         sound.play();
-    
+
+        //save pic url
         pic = $(this).find("img").attr("src") ;
+
+        //pass the pic url into choosePlayer function
         choosePlayer(pic);
     });
 
+    //when player clicks start button, hide modal
     $('#start').on('click', function() {
         sound.play();
         hideModal();
@@ -111,7 +116,7 @@ Enemy.prototype.render = function() {
 
 // Player constructor function
 let Player = function() {
-    //player's position
+    //player's initial position, score, lives, and level
     this.x = 220;
     this.y = 500;
     this.count = 0;
@@ -132,6 +137,7 @@ let Player = function() {
     }
 }
 
+//update player's position
 Player.prototype.update = function() {
     //don't allow player to go off canvas
     //checking x position
@@ -150,11 +156,12 @@ Player.prototype.update = function() {
         this.y = 0;
     }
 
+    //when player reaches water, and when player finishes all lives
     this.reachSafety();
     this.reset();
 }
 
-//function to check if player is out of lives
+//function to reset game if player is out of lives
 Player.prototype.reset = function() {
     //check if player lives reaches 0
     if(this.countH === 0) {
@@ -195,54 +202,56 @@ Player.prototype.reset = function() {
 
 //function when player reaches water
 Player.prototype.reachSafety = function() {
-    //return player to default position if player reaches the water, increment score
+    //return player to default position if player reaches the water, increment score, update scoreboard
     if(this.y < 20) {
-        console.log(this.level);
 
         this.x = 200;
         this.y = 400;
         this.count++;
         $('#score').text(this.count);
 
-        //move to level 2 by increasing speed
+        //move to level 2
         this.nextLevel(5, 1);
 
-        //move to level 3 by increasing speed
+        //move to level 3
         this.nextLevel(10, 2);
     }
 }
 
+//move player to next level
 Player.prototype.nextLevel = function(count, level) {
     if(this.count === count && this.level === level) {
 
-            //increment level
-            this.level++;
-            $('#level').text(this.level);
-            
-            //increase enemy speed
-            allEnemies.forEach(function(enemy) {
-                enemy.speed += 100;
-            });
+        //increment level
+        this.level++;
+        $('#level').text(this.level);
+        
+        //increase enemy speed
+        allEnemies.forEach(function(enemy) {
+            enemy.speed += 100;
+        });
 
-            //reset lives when player goes to new level
-            this.countH = 5;
-            $('#countH').text(this.countH);
-        }
+        //reset lives when player goes to new level
+        this.countH = 5;
+        $('#countH').text(this.countH);
+    }
 
-        //if player completes all 3 levels
-        if(this.level === 3 && this.count === 14) {
-            alert('Nicely done! Game Over!');
+    //if player completes all 3 levels
+    if(this.level === 3 && this.count === 14) {
+        alert('Nicely done! Game Over!');
 
-            //start game from beginning
-            $('#gameModal').css('display', 'block');
-            player.reset();
-        }
+        //reset game and display modal
+        $('#gameModal').css('display', 'block');
+        player.reset();
+    }
 }
 
+//render player to canvas
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+//handle user input from keyboard
 Player.prototype.handleInput = function(key) {
 
     this.key = key;
@@ -269,7 +278,8 @@ Player.prototype.handleInput = function(key) {
 
 //Gem constructor function to add gems to arcade game
 let Gem = function(gem) {
-    //gem's position
+
+    //gem's random position
     this.x = Math.floor(Math.random() * 400) + 1;
     this.y = Math.floor(Math.random() * 380) + 121;
     this.count = 0;
