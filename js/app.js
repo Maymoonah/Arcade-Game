@@ -15,6 +15,7 @@ function playSounds() {
         sound.play();
     
         pic = $(this).find("img").attr("src") ;
+        choosePlayer(pic);
     });
 
     $('#start').on('click', function() {
@@ -26,6 +27,11 @@ function playSounds() {
 //hideModal function
 function hideModal() {
     $('#gameModal').css('display', 'none');
+}
+
+//function to choose player
+function choosePlayer(pic) {
+    player.sprite = pic;
 }
 
 //call playSounds
