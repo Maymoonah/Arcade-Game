@@ -141,6 +141,7 @@ ul {
     font-family: 'VT323', monospace;
     font-size: 20px;
     margin-top: 5px;
+    padding: 5px;
 }
 
 /*Media Queries*/
