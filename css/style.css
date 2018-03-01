@@ -90,7 +90,7 @@ ul {
 }
 
 #start {
-    width: 20%;
+    width: 100%;
     height: 50px;
     display: block;
     background-color: rgba(209, 211, 214, 0.6);
@@ -140,7 +140,7 @@ ul {
 #countB, #countG, #countO, #countS, #countH {
     font-family: 'VT323', monospace;
     font-size: 20px;
-    padding-bottom: 15px;
+    margin-top: 5px;
 }
 
 /*Media Queries*/
@@ -245,11 +245,15 @@ ul {
 
 @media only screen and (max-width: 480px) {
     #title, .scoreBoard {
-        width: 80%;
+        width: 95%;
     }
 
     .gem {
         width: 20px;
         height: 20px;
+    }
+
+    li h3 {
+        padding: 0;
     }
 }
