@@ -187,6 +187,9 @@ Player.prototype.reset = function() {
 
         //reset enemies 
         allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
+
+        //display modal if player wants to change characters
+        $('#gameModal').css('display', 'block');
     }
 }
 
