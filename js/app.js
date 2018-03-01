@@ -208,13 +208,7 @@ Player.prototype.reachSafety = function() {
         this.nextLevel(5, 1);
 
         //move to level 3 by increasing speed
-        this.nextLevel(10, 2)
-
-        //move to level 4 by increasing speed
-        this.nextLevel(15, 3)
-
-        //move to level 5 by increasing speed
-        this.nextLevel(20, 4)
+        this.nextLevel(10, 2);
     }
 }
 
@@ -233,6 +227,15 @@ Player.prototype.nextLevel = function(count, level) {
             //reset lives when player goes to new level
             this.countH = 5;
             $('#countH').text(this.countH);
+        }
+
+        //if player completes all 3 levels
+        if(this.level === 3 && this.count === 14) {
+            alert('Nicely done! Game Over!');
+
+            //start game from beginning
+            $('#gameModal').css('display', 'block');
+            player.reset();
         }
 }
 
