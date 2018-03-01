@@ -162,17 +162,17 @@ Player.prototype.reset = function() {
             gem.countB = 0;
             gem.countG = 0;
             gem.countO = 0;
-            gem.countS = 0; 
+            gem.countS = 0;
+            $('#countB').text(gem.countB);
+            $('#countG').text(gem.countG);
+            $('#countO').text(gem.countO);
+            $('#countS').text(gem.countS);
         });
 
         //update scoreboard
         $('#level').text(this.level);
         $('#score').text(this.count);
         $('#countH').text(this.countH);
-        $('#countB').text(this.countB);
-        $('#countG').text(this.countG);
-        $('#countO').text(this.countO);
-        $('#countS').text(this.countS);
 
         //reset speed of enemies
         allEnemies.forEach(function(enemy) {
