@@ -94,7 +94,7 @@ Enemy.prototype.update = function(dt) {
 
         //reduce player lives
         player.countH--;
-        $('#countH').text(`${player.countH} Lives`);
+        $('#countH').text(player.countH);
     }
 };
 
