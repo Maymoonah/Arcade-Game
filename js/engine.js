@@ -152,10 +152,6 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies and allGems array and call
          * the render function you have defined.
          */
-        // blueGem.render();
-        // greenGem.render();
-        // orangeGem.render();
-        // star.render();
         allGems.forEach(function(gem) {
             gem.render();
         });
