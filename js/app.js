@@ -238,7 +238,7 @@ Player.prototype.nextLevel = function(count, level) {
 
     //if player completes all 3 levels
     if(this.level === 3 && this.count === 14) {
-        alert('Nicely done! Game Over!');
+        alert('Nicely done! :) All 3 Levels Completed! Game Over!');
 
         //reset game and display modal
         $('#gameModal').css('display', 'block');
