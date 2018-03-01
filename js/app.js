@@ -197,29 +197,29 @@ Player.prototype.reset = function() {
 Player.prototype.reachSafety = function() {
     //return player to default position if player reaches the water, increment score
     if(this.y < 20) {
+        console.log(this.level);
+
         this.x = 200;
         this.y = 400;
         this.count++;
         $('#score').text(this.count);
 
         //move to level 2 by increasing speed
-        if(this.count === 5 && this.level === 1) {
-            //increment level
-            this.level++;
-            $('#level').text(this.level);
-
-            //increase enemy speed
-            allEnemies.forEach(function(enemy) {
-                enemy.speed += 100;
-            });
-
-            //reset lives when player goes to new level
-            this.countH = 5;
-            $('#countH').text(this.countH);
-        }
+        this.nextLevel(5, 1);
 
         //move to level 3 by increasing speed
-        if(this.count === 5 && this.level === 2) {
+        this.nextLevel(10, 2)
+
+        //move to level 4 by increasing speed
+        this.nextLevel(15, 3)
+
+        //move to level 5 by increasing speed
+        this.nextLevel(20, 4)
+    }
+}
+
+Player.prototype.nextLevel = function(count, level) {
+    if(this.count === count && this.level === level) {
 
             //increment level
             this.level++;
@@ -234,7 +234,6 @@ Player.prototype.reachSafety = function() {
             this.countH = 5;
             $('#countH').text(this.countH);
         }
-    }
 }
 
 Player.prototype.render = function() {
