@@ -180,10 +180,7 @@ Player.prototype.reset = function() {
         });
 
         //reset enemies 
-        allEnemies.forEach(function(enemy) {
-            enemy.render();
-            enemy.update();
-        });
+        allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
     }
 }
 
