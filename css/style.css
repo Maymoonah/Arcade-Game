@@ -28,7 +28,7 @@ li:active {
 }
 
 h3 {
-    font-family: 'VT323', monospace;
+    font-family: "VT323", monospace;
     text-align: center;
     padding: 4px;
     margin: 0;
@@ -36,7 +36,7 @@ h3 {
 
 h1 {
     color: #fff;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     text-shadow: 2px 2px 8px #333435;
 }
 
@@ -94,7 +94,7 @@ ul {
     height: 50px;
     display: block;
     background-color: rgba(209, 211, 214, 0.6);
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     font-size: 25px;
     text-shadow: 4px 4px 10px #7dcbf2;
     font-weight: bold;
@@ -138,7 +138,7 @@ ul {
 }
 
 #countB, #countG, #countO, #countS, #countH {
-    font-family: 'VT323', monospace;
+    font-family: "VT323", monospace;
     font-size: 20px;
     margin-top: 5px;
     padding: 5px;
