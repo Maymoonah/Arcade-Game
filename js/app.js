@@ -242,7 +242,7 @@ Player.prototype.nextLevel = function(count, level) {
 
         //reset game and display modal
         $('#gameModal').css('display', 'block');
-        player.reset();
+        this.reset();
     }
 }
 
