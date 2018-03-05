@@ -61,22 +61,6 @@ $('li').on('click', function() {
 
 /********************************Code For the Game***********************************/
 
-
-// Creating the Superclass Entity which will include the code found in both the Enemy and Player class.
-let Entity = function(x, y, width, height, sprite) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.sprite = `images/${sprite}`;
-    this.location = function() {
-        img.onload = function () {
-            ctx.drawImage(img, x, y);
-        }
-        img.src = `images/${sprite}`;
-    }
-} 
-
 // Enemy constructor function
 let Enemy = function() {
     //coordinates for enemies
