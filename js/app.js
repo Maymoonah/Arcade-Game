@@ -174,46 +174,50 @@ Player.prototype.update = function() {
 
     //when player reaches water, and when player finishes all lives
     this.reachSafety();
-    this.reset();
+    if(this.countH === 0) {
+        this.reset();   
+        console.log(countB);
+         console.log(countO);
+         console.log(countG);
+         console.log(countS);    
+    }
 }
 
 //function to reset game if player is out of lives
 Player.prototype.reset = function() {
     //check if player lives reaches 0
-    if(this.countH === 0) {
-        alert('Game Over');
+    alert('Game Over');
 
-        //reset score, lives, level, and gems
-        this.countH = 5;
-        this.count = 0;
-        this.level = 1;
-        allGems.forEach(function(gem) {
-            gem.countB = 0;
-            gem.countG = 0;
-            gem.countO = 0;
-            gem.countS = 0;
-            $('#countB').text(gem.countB);
-            $('#countG').text(gem.countG);
-            $('#countO').text(gem.countO);
-            $('#countS').text(gem.countS);
-        });
+    //reset score, lives, level, and gems
+    this.countH = 5;
+    this.count = 0;
+    this.level = 1;
+    allGems.forEach(function(gem) {
+        gem.countB = 0;
+        gem.countG = 0;
+        gem.countO = 0;
+        gem.countS = 0;
+        $('#countB').text(gem.countB);
+        $('#countG').text(gem.countG);
+        $('#countO').text(gem.countO);
+        $('#countS').text(gem.countS);
+    });
 
-        //update scoreboard
-        $('#level').text(this.level);
-        $('#score').text(this.count);
-        $('#countH').text(this.countH);
+    //update scoreboard
+    $('#level').text(this.level);
+    $('#score').text(this.count);
+    $('#countH').text(this.countH);
 
-        //reset speed of enemies
-        allEnemies.forEach(function(enemy) {
-            enemy.speed -= 100;
-        });
+    //reset speed of enemies
+    allEnemies.forEach(function(enemy) {
+        enemy.speed -= 100;
+    });
 
-        //reset enemies 
-        allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
+    //reset enemies 
+    allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 
-        //display modal if player wants to change characters
-        $('#gameModal').css('display', 'block');
-    }
+    //display modal if player wants to change characters
+    $('#gameModal').css('display', 'block');
 }
 
 //function when player reaches water
