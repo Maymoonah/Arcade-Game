@@ -159,8 +159,9 @@ Player.prototype.update = function() {
     //when player reaches water, and when player finishes all lives
     this.reachSafety();
     if(this.countH === 0) {
-        this.reset();
+        this.reset();    
     }
+}
 
 //function to reset game if player is out of lives
 Player.prototype.reset = function() {
