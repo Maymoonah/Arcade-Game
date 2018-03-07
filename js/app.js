@@ -124,12 +124,6 @@ let Player = function() {
 
     //image for player
     this.sprite = 'images/char-boy.png';
-    this.location = function() {
-        img.onload = function () {
-            ctx.drawImage(img, x, y);
-        }
-        img.src = 'images/char-boy.png';
-    }
 }
 
 //update player's position
