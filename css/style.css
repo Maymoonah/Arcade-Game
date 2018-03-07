@@ -137,7 +137,7 @@ ul {
     margin: 0;
 }
 
-#countB, #countG, #countO, #countS, #countH {
+.countB, .countG, .countO, .countS, .countH {
     font-family: "VT323", monospace;
     font-size: 20px;
     margin-top: 5px;
