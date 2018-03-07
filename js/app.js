@@ -24,7 +24,7 @@ function playSounds() {
     });
 
     //when player clicks start button, hide modal
-    $('#start').on('click', function() {
+    $('.start').on('click', function() {
         sound.play();
         hideModal();
     });
@@ -32,7 +32,7 @@ function playSounds() {
 
 //hideModal function
 function hideModal() {
-    $('#gameModal').css('display', 'none');
+    $('.gameModal').css('display', 'none');
 }
 
 //function to choose player
@@ -108,7 +108,7 @@ Enemy.prototype.checkCollisions = function() {
 
         //reduce player lives
         player.countH--;
-        $('#countH').text(player.countH);
+        $('.countH').text(player.countH);
     }
 };
 
@@ -151,16 +151,16 @@ Player.prototype.reset = function() {
         gem.countG = 0;
         gem.countO = 0;
         gem.countS = 0;
-        $('#countB').text(gem.countB);
-        $('#countG').text(gem.countG);
-        $('#countO').text(gem.countO);
-        $('#countS').text(gem.countS);
+        $('.countB').text(gem.countB);
+        $('.countG').text(gem.countG);
+        $('.countO').text(gem.countO);
+        $('.countS').text(gem.countS);
     });
 
     //update scoreboard
-    $('#level').text(this.level);
-    $('#score').text(this.count);
-    $('#countH').text(this.countH);
+    $('.level').text(this.level);
+    $('.score').text(this.count);
+    $('.countH').text(this.countH);
 
     //reset speed of enemies
     allEnemies.forEach(function(enemy) {
@@ -171,7 +171,7 @@ Player.prototype.reset = function() {
     allEnemies = [new Enemy(), new Enemy(), new Enemy(), new Enemy()];
 
     //display modal if player wants to change characters
-    $('#gameModal').css('display', 'block');
+    $('.gameModal').css('display', 'block');
 }
 
 //function when player reaches water
@@ -182,7 +182,7 @@ Player.prototype.reachSafety = function() {
         this.x = 200;
         this.y = 400;
         this.count++;
-        $('#score').text(this.count);
+        $('.score').text(this.count);
 
         //move to level 2
         this.nextLevel(5, 1);
@@ -198,7 +198,7 @@ Player.prototype.nextLevel = function(count, level) {
 
         //increment level
         this.level++;
-        $('#level').text(this.level);
+        $('.level').text(this.level);
         
         //increase enemy speed
         allEnemies.forEach(function(enemy) {
@@ -207,7 +207,7 @@ Player.prototype.nextLevel = function(count, level) {
 
         //reset lives when player goes to new level
         this.countH = 5;
-        $('#countH').text(this.countH);
+        $('.countH').text(this.countH);
     }
 
     //if player completes all 3 levels
@@ -215,7 +215,7 @@ Player.prototype.nextLevel = function(count, level) {
         alert('Nicely done! :) All 3 Levels Completed! Game Over!');
 
         //reset game and display modal
-        $('#gameModal').css('display', 'block');
+        $('.gameModal').css('display', 'block');
         this.reset();
     }
 }
@@ -309,19 +309,19 @@ Gem.prototype.update = function(dt) {
         switch(this.sprite) {
             case 'images/Gem-Blue.png':
                 this.countB++;
-                $('#countB').text(this.countB);
+                $('.countB').text(this.countB);
                 break;
             case 'images/Gem-Green.png':
                 this.countG++;
-                $('#countG').text(this.countG);
+                $('.countG').text(this.countG);
                 break;
             case 'images/Gem-Orange.png':
                 this.countO++;
-                $('#countO').text(this.countO);
+                $('.countO').text(this.countO);
                 break;
             case 'images/Star.png':
                 this.countS++;
-                $('#countS').text(this.countS);
+                $('.countS').text(this.countS);
                 break;
         }
     }

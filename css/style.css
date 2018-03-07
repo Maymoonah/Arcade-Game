@@ -54,7 +54,7 @@ ul {
     padding-left: 22px;
 }
 
-#title {
+.title {
     font-size: 50px;
     background-color: teal;
     padding: 0;
@@ -64,7 +64,7 @@ ul {
     border-top-right-radius: 15px;
 }
 
-#gameModal {
+.gameModal {
     display: block;
     position: fixed;
     z-index: 1;
@@ -77,7 +77,7 @@ ul {
     margin: 0;
 }
 
-#modalContent {
+.modalContent {
     background-color: rgba(36, 71, 104, 0.8);
     margin: 4% auto;
     padding: 10px;
@@ -89,7 +89,7 @@ ul {
     align-content: center;
 }
 
-#start {
+.start {
     width: 100%;
     height: 50px;
     display: block;
@@ -104,7 +104,7 @@ ul {
     text-align: center;
  }
 
- #start:hover {
+.start:hover {
     background-color: #2d87c4;
     color: #fff;
     text-shadow: 2px 2px 8px #9fa3a5;
@@ -113,7 +113,7 @@ ul {
     cursor: pointer;
  }
 
- #start:active {
+.start:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
@@ -179,7 +179,7 @@ ul {
         height: 75px;
     }
 
-    #modalContent {
+    .modalContent {
         width: 40%;
         padding: 5px;
     }
@@ -203,7 +203,7 @@ ul {
         font-size: 24px;
     }
 
-    #modalContent {
+    .modalContent {
         width: 40%;
     }
 }
@@ -215,13 +215,13 @@ ul {
 }
 
 @media only screen and (max-width: 700px) {
-    #modalContent {
+    .modalContent {
         width: 60%;
     }
 }
 
 @media only screen and (max-width: 500px) {
-    #modalContent {
+    .modalContent {
         width: 85%;
     }
 }
@@ -239,13 +239,13 @@ ul {
 }
 
 @media only screen and (min-width: 1350px) {
-    #modalContent {
+    .modalContent {
         padding-left: 60px;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    #title, .scoreBoard {
+    .title, .scoreBoard {
         width: 95%;
     }
 
