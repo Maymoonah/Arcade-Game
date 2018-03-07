@@ -80,12 +80,6 @@ let Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.location = function() {
-        img.onload = function () {
-            ctx.drawImage(img, x, y);
-        }
-        img.src = 'images/enemy-bug.png';
-    }
 };
 
 // Update the enemy's position
