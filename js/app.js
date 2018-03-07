@@ -131,8 +131,7 @@ let Player = function() {
 
 //update player's position
 Player.prototype.update = function() {
-    //when player reaches water, and when player finishes all lives
-    this.reachSafety();
+    //reset lives if player runs out of lives
     if(this.countH === 0) {
         this.reset();   
     }
@@ -363,5 +362,6 @@ document.addEventListener('keyup', function(e) {
     if(player.y < 0) {
         player.y = 0;
     }
-
+    //when player reaches water, and when player finishes all lives
+    player.reachSafety();
 });
