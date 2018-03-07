@@ -344,6 +344,7 @@ Gem.prototype.update = function(dt) {
             case 'images/Gem-Orange.png':
                 this.countO++;
                 $('#countO').text(this.countO);
+                break;
             case 'images/Star.png':
                 this.countS++;
                 $('#countS').text(this.countS);
