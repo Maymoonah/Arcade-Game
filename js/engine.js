@@ -79,7 +79,9 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        allEnemies.forEach(function(enemy) {
+            enemy.checkCollisions();
+        });
     }
 
     /* This is called by the update function and loops through all of the
