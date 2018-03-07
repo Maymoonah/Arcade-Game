@@ -89,7 +89,15 @@ Enemy.prototype.update = function(dt) {
     if(this.x > 506) {
         this.x = 0;
     }
+};
 
+// Draw the enemy on the screen
+Enemy.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+//check for player collision with enemies
+Enemy.prototype.checkCollisions = function() {
     //check for player collision with enemy
     if (player.x < this.x + this.enemyWidth && player.x + player.playerWidth > this.x &&
         player.y < this.y + this.enemyHeight && player.playerHeight + player.y > this.y) {
@@ -102,11 +110,6 @@ Enemy.prototype.update = function(dt) {
         player.countH--;
         $('#countH').text(player.countH);
     }
-};
-
-// Draw the enemy on the screen
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Player constructor function
