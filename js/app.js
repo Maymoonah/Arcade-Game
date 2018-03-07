@@ -1,3 +1,4 @@
+'use strict';
 /**************Code for game Modal to choose Player*****************/
 let pic;
 
