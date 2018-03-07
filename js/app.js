@@ -131,23 +131,6 @@ let Player = function() {
 
 //update player's position
 Player.prototype.update = function() {
-    //don't allow player to go off canvas
-    //checking x position
-    if(this.x > ctx.canvas.width - this.playerWidth) {
-        this.x = 450;
-    }
-    if(this.x < 0) {
-        this.x = 0;
-    }
-
-    //check y position
-    if(this.y > ctx.canvas.height - this.playerHeight) {
-        this.y = 500;
-    }
-    if(this.y < 0) {
-        this.y = 0;
-    }
-
     //when player reaches water, and when player finishes all lives
     this.reachSafety();
     if(this.countH === 0) {
@@ -364,4 +347,21 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
     player.handleInput(allowedKeys[e.keyCode]);
+    //don't allow player to go off canvas
+    //checking x position
+    if(player.x > ctx.canvas.width - player.playerWidth) {
+        player.x = 450;
+    }
+    if(player.x < 0) {
+        player.x = 0;
+    }
+
+    //check y position
+    if(player.y > ctx.canvas.height - player.playerHeight) {
+        player.y = 500;
+    }
+    if(player.y < 0) {
+        player.y = 0;
+    }
+
 });
