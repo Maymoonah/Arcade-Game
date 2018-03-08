@@ -63,7 +63,7 @@ $('li').on('click', function() {
 /********************************Code For the Game***********************************/
 
 // Enemy constructor function
-let Enemy = function() {
+const Enemy = function() {
     //coordinates for enemies
     this.x = 0;
     //add random points for y to allow enemies to appear on random rows
@@ -113,7 +113,7 @@ Enemy.prototype.checkCollisions = function() {
 };
 
 // Player constructor function
-let Player = function() {
+const Player = function() {
     //player's initial position, score, lives, and level
     this.x = 220;
     this.y = 500;
@@ -251,7 +251,7 @@ Player.prototype.handleInput = function(key) {
 }
 
 //Gem constructor function to add gems to arcade game
-let Gem = function(gem) {
+const Gem = function(gem) {
 
     //gem's random position
     this.x = Math.floor(Math.random() * 400) + 1;
